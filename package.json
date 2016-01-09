@@ -1,0 +1,18 @@
+{
+  "name": "z-seq-lib",
+  "version": "0.0.1",
+  "description": "Functional library of sequence functions. Brings sequential abtract data types to core JS data types",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "sequence",
+    "functions",
+    "abstract",
+    "data"
+  ],
+  "author": "Zack Penka",
+  "license": "ISC"
+}
