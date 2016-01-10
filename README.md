@@ -26,6 +26,10 @@ but `Object` are supported. Therefore, any non-Object data structure in
 JavaScript can be said to be also of abstract type Sequence. Any function in
 this library can act upon any `Array`, `Set` or `Map` that you pass it.
 
+## Notes
+If you want to play around with this, ensure you have Node v.4 or higher, as
+all the functions were written with ES2015 features.
+
 ## Inspiration
 This project was inspired by the "Core Functions" chapter in _Clojure for the
 Brave and True_ by Daniel Higginbotham. The examples of sequence nodes (with
