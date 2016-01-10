@@ -73,3 +73,5 @@ const seq = data => {
 
 // map -> apply a given function to each value in the given Sequence
 const map = (f, seq) => seq === null ? null : cons(f(first(seq)), map(f, rest(seq)));
+
+// More to come!
