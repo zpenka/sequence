@@ -1,27 +1,27 @@
-// Create a sequence node
+// Create a Sequence node
 const createNode = (value, next) => ({ value, next });
 
 // Checks if passed object is a Sequence node
 const isNode = node => value in node && next in node;
 
-// Checks if passed data structure is a sequence
+// Checks if passed data structure is a Sequence
 const isSeq = data => Array.isArray(data) && data.every(isNode);
 
 // Sequence processing functions:
-// Return first node's value in a sequence
+// Return first node's value in a Sequence
 const first = data => isSeq(data) ? data[0] : first(seq(data));
 
-// Return the rest of the sequence
+// Return the rest of the Sequence
 const rest = data => isSeq(data) ? data.slice(1) : rest(seq(data));
 
 // Return a new sequence with given elements
 const cons = (first, second) => isSeq(second) ? second.unshift(first) : cons(seq(first, second));
 
-// Main sequence function. Takes an array, set or map and returns a 'sequence'
-// an Abstract Data Type that can be used with any of the sequence processing
+// Main Sequence function. Takes an Array, Set or Map and returns a 'Sequence',
+// an Abstract Data Type that can be used with any of the Sequence processing
 // functions
 const seq = data => {
-  // Each data type is going to need its own procedure for sequence coersion
+  // Each data type is going to need its own procedure for Sequence coersion
   let seq = [];
   if (Array.isArray(data)) {
     let buildSeqNodesFromArray = data => {
@@ -39,11 +39,11 @@ const seq = data => {
     }
     return buildSeqNodesFromArray(data);
   } else if (data instanceof Set || data instanceof Map) {
-    // Build a sequence from a JS Set or Map (Both are iterable in identical manner)
+    // Build a Sequence from a JS Set or Map (Both are iterable in identical manner)
     // Create an iterator
     const iter = data[Symbol.iterator]();
 
-    // Build Sequence
+    // Recursively build Sequence
     const buildSeqNodesFromIter = iter => {
       const node = iter.next();
       if (node.done) {
@@ -61,8 +61,8 @@ const seq = data => {
     buildSeqNodesFromIter(iter);
   } else {
     // Throw an error, data type not supported
-    return new Error("Error: Supplied data must be of abstract type Sequence");
+    throw new Error("Supplied data must be of abstract type Sequence.");
   }
-  // Pass back sequence of data
+  // Pass back Sequence
   return seq;
 }
