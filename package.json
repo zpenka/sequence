@@ -14,5 +14,9 @@
     "data"
   ],
   "author": "Zack Penka",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-eslint": "^1.1.1",
+    "gulp-uglify": "^1.5.1"
+  }
 }
