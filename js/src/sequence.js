@@ -66,3 +66,10 @@ const seq = data => {
   // Pass back Sequence
   return seq;
 }
+
+// Sequence functions
+// These functions all act upon any given Sequence, regardless of its native JS
+// Type
+
+// map -> apply a given function to each value in the given Sequence
+const map = (f, seq) => seq === null ? null : cons(f(first(seq)), map(f, rest(seq)));
