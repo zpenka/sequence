@@ -26,18 +26,12 @@ const seq = data => {
   if (Array.isArray(data)) {
     let buildSeqNodesFromArray = data => {
       if (data.length === 1) {
-        return seq.push({
-          value: data[0],
-          next: null,
-        });
+        return seq.push(createNode(data[0], null));
       } else {
-        return seq.push({
-          value: data[0],
-          next: buildSeqNodesFromArray(data.slice(1)),
-        });
+        return seq.push(createNode(data[0], buildSeqNodesFromArray(data.slice(1)));
       }
     }
-    return buildSeqNodesFromArray(data);
+    buildSeqNodesFromArray(data);
   } else if (data instanceof Set || data instanceof Map) {
     // Build a Sequence from a JS Set or Map (Both are iterable in identical manner)
     // Create an iterator
@@ -47,15 +41,9 @@ const seq = data => {
     const buildSeqNodesFromIter = iter => {
       const node = iter.next();
       if (node.done) {
-        return seq.push({
-          value: node.value,
-          next: null,
-        });
+        return seq.push(createNode(node.value, null));
       } else {
-        return seq.push({
-          value: node.value,
-          next: buildSeqNodesFromIter(iter),
-        });
+        return seq.push(createNode(node.value, buildSeqNodesFromIter(iter)));
       }
     }
     buildSeqNodesFromIter(iter);
