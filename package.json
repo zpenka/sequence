@@ -1,5 +1,5 @@
 {
-  "name": "z-seq-lib",
+  "name": "sequence",
   "version": "0.0.1",
   "description": "Functional library of sequence functions. Brings sequential abtract data types to core JS data types",
   "main": "index.js",
